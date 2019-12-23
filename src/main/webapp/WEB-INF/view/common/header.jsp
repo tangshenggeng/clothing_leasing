@@ -17,9 +17,9 @@
       <li class="layui-nav-item">
         <a href="javascript:;"><i class="layui-icon layui-icon-list"></i> 分类管理</a>
         <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
+          <dd><a href="${PATH}/classify/toAddClassifyPage">添加分类</a></dd>
+          <dd><a href="${PATH}/classify/toShowClassifyPage">展示的分类</a></dd>
+          <dd><a href="${PATH}/classify/toHideClassifyPage">隐藏的分类</a></dd>
         </dl>
       </li>
       <li class="layui-nav-item">

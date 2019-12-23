@@ -168,7 +168,6 @@ $("#delByIds").click(function(){
 			$(datas).each(function(){
 				ids.push($(this)[0].id);
 			})
-			
 			if(ids.length==0){
 				layer.msg("请选择数据！");
 				return false;
