@@ -19,7 +19,7 @@ public class UploadFileUtil {
 					return "error";
 				}
 				long time = new Date().getTime();
-				String newName = time + substring;
+				String newName = UUIDUtil.createFiveLength()+time + substring;
 				File file = new File(savePath + "/" + newName);
 				InputStream inputStream = uploadFile.getInputStream();
 				FileUtils.copyInputStreamToFile(inputStream, file);

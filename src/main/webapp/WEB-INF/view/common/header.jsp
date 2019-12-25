@@ -25,9 +25,9 @@
       <li class="layui-nav-item">
         <a href="javascript:;"><i class="layui-icon layui-icon-chart-screen"></i> 服装管理</a>
         <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
+          <dd><a href="${PATH}/clothing/toAddClothingPage">添加服装</a></dd>
+          <dd><a href="${PATH}/clothing/toShowClothingPage">展示的服装</a></dd>
+          <dd><a href="${PATH}/clothing/toHideClothingPage">隐藏的服装</a></dd>
         </dl>
       </li>
       <li class="layui-nav-item">

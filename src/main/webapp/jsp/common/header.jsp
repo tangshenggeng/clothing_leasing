@@ -13,100 +13,30 @@
                   <div class="col-xl-5 col-lg-3 col-md-2 col-sm-12">
                      <div class="menubar">
                         <nav id="mobile-menu">
-                           <ul>
+                           <ul id="navClassify">
                               <li>
-                                 <a href="${PATH}/jsp/index.html">首页</a>
-                                 <%-- <ul class="submenu">
-                                    <li><a href="${PATH}/jsp/index.html">Home Style 1</a></li>
-                                    <li><a href="index2.html">Home Style 2</a></li>
-                                    <li><a href="index3.html">Home Style 3</a></li>
-                                    <li><a href="index4.html">Home Style 4</a></li>
-                                 </ul> --%>
+                                 <a href="${PATH}/jsp/index.jsp">首页</a>
                               </li>
+	                              <li>
+	                                 <a href="shop.html">服装</a>
+	                                 <ul class="mega-menu" style="min-width:200px;width: 200px">
+	                                    <li style="width:100%">
+	                                       <a href="#">服装分类</a>
+	                                       <ul id="getClassifyDiv">
+	                                          <li v-for="item in classifys"><a :href="'${PATH}/clothing/'+item.ident">{{item.name}}</a></li>
+	                                       </ul>
+	                                    </li>
+	                                 </ul>
+	                              </li>
+	                              <li>
+	                                 <a href="blog-2-col.html">新闻</a>
+	                                 <ul class="submenu">
+	                                 	<!-- 博客的分类 -->
+	                                 	<li><a href="/clothing_leasing/clothing/72BAFA6FA7">节日服</a></li>
+	                                 </ul>
+	                              </li>
                               <li>
-                                 <a href="shop.html">产品</a>
-                                 <ul class="mega-menu">
-                                    <li>
-                                       <a href="shop.html">Furniture Category</a>
-                                       <ul>
-                                          <li><a href="shop.html">Small Storage</a></li>
-                                          <li><a href="shop.html">Chaise beds</a></li>
-                                          <li><a href="shop.html">Stools &amp; Benches</a></li>
-                                          <li><a href="shop.html">Lounge Chairs</a></li>
-                                          <li><a href="shop.html">Sofa armchairs</a></li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="shop.html">Furniture Category</a>
-                                       <ul>
-                                          <li><a href="shop.html">Lounge Chairs</a></li>
-                                          <li><a href="shop.html">Small Storage</a></li>
-                                          <li><a href="shop.html">Chaise beds</a></li>
-                                          <li><a href="shop.html">Stools &amp; Benches</a></li>
-                                          <li><a href="shop.html">Small Storage</a></li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="shop.html">Furniture Category</a>
-                                       <ul>
-                                          <li><a href="shop.html">Small Storage</a></li>
-                                          <li><a href="shop.html">Chaise beds</a></li>
-                                          <li><a href="shop.html">Stools &amp; Benches</a></li>
-                                          <li><a href="shop.html">Lounge Chairs</a></li>
-                                          <li><a href="shop.html">Sofa armchairs</a></li>
-                                       </ul>
-                                    </li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a href="shop.html">Shop</a>
-                                 <ul class="mega-menu">
-                                    <li>
-                                       <a href="shop.html">Shop View</a>
-                                       <ul>
-                                          <li><a href="shop.html">Shop Grid</a></li>
-                                          <li><a href="list-view.html">Shop List</a></li>
-                                          <li><a href="shop.html">Shop 3 Column</a></li>
-                                          <li><a href="shop-full.html">Shop Full View</a></li>
-                                          <li><a href="shop-4-column.html">Shop 4 Column</a></li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="shop.html">Shop View</a>
-                                       <ul>
-                                          <li><a href="shop-sidebar-left.html">Sidebar Left</a></li>
-                                          <li><a href="shop-sidebar-right.html">Sidebar Right</a></li>
-                                          <li><a href="cart.html">Shopping Cart</a></li>
-                                          <li><a href="wishlist.html">My Wishlist</a></li>
-                                          <li><a href="checkout.html">Checkout</a></li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="shop.html">Product Types</a>
-                                       <ul>
-                                          <li><a href="simple.html">Simple Product</a></li>
-                                          <li><a href="configurable.html">Configurable Product</a></li>
-                                          <li><a href="left-thumb.html">Thumb Left Product</a></li>
-                                       </ul>
-                                    </li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a href="blog-2-col.html">Blog</a>
-                                 <ul class="submenu">
-                                    <li><a href="blog-2-col.html">Blog 2 Column</a></li>
-                                    <li><a href="blog-2-col-mas.html">Blog 2 Col Masonry</a></li>
-                                    <li><a href="blog-3-col.html">Blog 3 Column</a></li>
-                                    <li><a href="blog-3-col-mas.html">Blog 3 Col Masonry</a></li>
-                                    <li><a href="blog-detail.html">Blog Details</a></li>
-                                    <li><a href="blog-detail-audio.html">Blog Audio</a></li>
-                                    <li><a href="blog-detail-video.html">Blog Video</a></li>
-                                    <li><a href="blog-detail-gallery.html">Blog Gallery</a></li>
-                                    <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a href="#">Pages</a>
+                                 <a href="#">关于我们</a>
                                  <ul class="submenu">
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
@@ -118,7 +48,7 @@
                                     <li><a href="404.html">404</a></li>
                                  </ul>
                               </li>
-                              <li><a href="contact.html">Contact</a></li>
+                              <li><a href="contact.html">联系我们</a></li>
                            </ul>
                         </nav>
                      </div>
@@ -169,57 +99,23 @@
                   </div>
                </div>
             </div>
+            <script>
+            	var getClassifyDiv = new Vue({
+            		el:"#getClassifyDiv",
+            		data:{
+            			classifys:[]
+            		},created: function () {
+            			//供应商
+            			this.$http.get("${PATH}/classify/getClassifyByShow").then(function(response){
+            				console.log(response.body)
+            				//成功
+            				this.classifys=response.body;
+            			},function(response) {
+            				//错误
+            				console.log("系统错误！")
+            			});
+            		}          		
+            	});
+            </script>
          </header>
-<%-- 
-<div class="header_con">
-	<div class="header">
-		<div class="welcome fl">欢迎来到草原兴发!</div>
-		<div class="fr">
-			<c:choose>
-				<c:when test="${not empty sessionScope.name}">
-					<div class="login_info fl">
-						欢迎您：<em>${sessionScope.name}</em>
-					</div>
-					<div class="user_link fl">
-						<span>|</span>
-						<a href="${PATH}/pages/user_center_info.jsp">用户中心</a>
-						<span>|</span>
-						<a href="${PATH}/cart/getMyCart/${sessionScope.ident}">我的购物车</a>
-						<span>|</span>
-						<a href="${PATH}/order/getMyOrders/${sessionScope.ident}">我的订单</a>
-						<span>|</span>
-						<a href="${PATH}/customer/loginOut">退出登录</a>
-					</div>
-				</c:when>
-				<c:when test="${empty sessionScope.name}">
-					<div class="login_btn fl">
-						<span>|</span>
-						<a href="${PATH}/pages/login.jsp">登录</a>
-						<span>|</span>
-						<a href="${PATH}/pages/register.jsp">注册</a>
-						<span>|</span>
-						<a href="${PATH}/pages/admin-login.jsp">后台登录</a>
-					</div>
-				</c:when>
-			</c:choose>
-		</div>
-	</div>		
-</div>
-<div class="search_bar clearfix">
-		<a href="${PATH}/pages/index.jsp" class="logo fl"><img style="border:0;width:100px;height:75px;" src="${PATH}/pages/images/logo.png"></a>
-		<div class="search_con fl">
-			<form action="${PATH}/food/findFoodsByKeyWords" method="post">
-				<input type="text" class="input_text fl" name="foodName" placeholder="搜索商品">
-				<input type="submit" class="input_btn fr" value="搜索">
-			</form>
-			
-		</div>
-		<c:choose>
-		<c:when test="${not empty sessionScope.name}">
-			<div class="guest_cart fr">
-				<a href="${PATH}/cart/getMyCart/${sessionScope.ident}" class="cart_name fl">我的购物车</a>
-				<div class="goods_count fl" id="show_count">*</div>
-			</div>
-		</c:when>
-		</c:choose>
-	</div> --%>
+

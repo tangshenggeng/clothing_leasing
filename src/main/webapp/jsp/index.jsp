@@ -118,16 +118,16 @@
                <div class="col-sm-12">
                   <ul>
                      <li>
-                        <h4>Free Shipping</h4>
-                        <p>Free Shippment on this area</p>
+                        <h4>免费送货</h4>
+                        <p>江西境内免费送货上门</p>
                      </li>
                      <li>
-                        <h4>Money Back</h4>
-                        <p>100% Money back  - 30 days</p>
+                        <h4>极速发货</h4>
+                        <p>下单2个小时内发货</p>
                      </li>
                      <li>
-                        <h4>24h support</h4>
-                        <p>Services support fast 24/7</p>
+                        <h4>24小时在线</h4>
+                        <p>服务支持24/7在线</p>
                      </li>
                   </ul>
                </div>
@@ -785,28 +785,28 @@
                </div>
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <div class="timer-right">
-                     <h2>Sale up to 45%!</h2>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                     <h2>信赖我们</h2>
+                    <!--  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p> -->
                      <div class="timer">
                         <div>
-                           <span class="days" id="day"></span> 
-                           <div class="smalltext">Days</div>
+                           <span class="days">213</span> 
+                           <div class="smalltext">商品数</div>
                         </div>
                         <div>
-                           <span class="hours" id="hour"></span> 
-                           <div class="smalltext">Hours</div>
+                           <span class="hours">312</span> 
+                           <div class="smalltext">交易量</div>
                         </div>
                         <div>
-                           <span class="minutes" id="minute"></span> 
-                           <div class="smalltext">Minutes</div>
+                           <span class="minutes">321</span> 
+                           <div class="smalltext">顾客数</div>
                         </div>
-                        <div>
-                           <span class="seconds" id="second"></span> 
+                       <!--  <div>
+                           <span class="seconds"></span> 
                            <div class="smalltext">Seconds</div>
-                        </div>
+                        </div> -->
                         <p id="time-up"></p>
                      </div>
-                     <div class="view-all"><a href="shop.html">View all Products</a></div>
+                     <div class="view-all"><a href="shop.html">所有产品</a></div>
                   </div>
                </div>
             </div>
@@ -818,11 +818,11 @@
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <div class="titlebar">
                      <div class="title">
-                        <h1>Bestseller</h1>
+                        <h1>最新</h1>
                      </div>
                      <div class="next-back">
-                        <span><a data-slide="prev" href="#Carousel-4" class="left carousel-control">Back</a></span>
-                        <span><a data-slide="next" href="#Carousel-4" class="right carousel-control">Next</a></span>
+                        <span><a data-slide="prev" href="#Carousel-4" class="left carousel-control">上一页</a></span>
+                        <span><a data-slide="next" href="#Carousel-4" class="right carousel-control">下一页</a></span>
                      </div>
                   </div>
                   <div class="mini-carousel-area">
@@ -991,11 +991,11 @@
                <div class="col-lg-6 col-md-12 col-sm-12">
                   <div class="titlebar">
                      <div class="title">
-                        <h1>Featured</h1>
+                        <h1>畅销</h1>
                      </div>
                      <div class="next-back">
-                        <span><a data-slide="prev" href="#Carousel-5" class="left carousel-control">Back</a></span>
-                        <span><a data-slide="next" href="#Carousel-5" class="right carousel-control">Next</a></span>
+                        <span><a data-slide="prev" href="#Carousel-5" class="left carousel-control">上一页</a></span>
+                        <span><a data-slide="next" href="#Carousel-5" class="right carousel-control">下一页</a></span>
                      </div>
                   </div>
                   <div class="mini-carousel-area">
@@ -1164,7 +1164,7 @@
             </div>
          </div>
          <div class="blog-area">
-            <h1>Blogs</h1>
+            <h1>博客</h1>
             <div class="row">
                <div class="col-lg-4 col-md-12 col-sm-12">
                   <div class="blog">
@@ -1277,5 +1277,6 @@
       
       <!-- 静态引入底部 -->
       <%@ include file="/jsp/common/footer.jsp"%>
+      <%-- <script src="${PATH}/jsp/assets/js/timer.js"></script> --%>
    </body>
 </html>

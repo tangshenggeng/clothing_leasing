@@ -12,6 +12,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,6 +40,46 @@ public class ClassifyController {
 
 	@Autowired
 	private ClassifyService classifySer;
+	
+	/**
+	 * 展示分类
+	 * @return 
+	 * */
+	@RequestMapping("/getClassifyByShow")
+	@ResponseBody
+	public List<Map<String, Object>> getClassifyByShow() {
+		List<Classify> list = classifySer.selectList(new EntityWrapper<Classify>().eq("is_show", "展示").orderBy("classify_weight", false));
+		List<Map<String,Object>> list2 = new ArrayList<Map<String,Object>>();
+		for (Classify classify : list) {
+			Map<String,Object> map = new HashMap<String, Object>();
+			map.put("name", classify.getClassifyName());
+			map.put("ident",classify.getClassifyIdent());
+			list2.add(map);
+		}
+		return list2;
+	}
+	
+	/**
+	 * 通过id查询
+	 * @return 
+	 * */
+	@RequestMapping("/getById/{id}")
+	@ResponseBody
+	public Classify getById(@PathVariable("id")Integer id) {
+		Classify classify = classifySer.selectById(id);
+		return classify;
+	}
+	
+	/**
+	 * 得到所有的分类（下拉选择）
+	 * @return 
+	 * */
+	@RequestMapping("/getAllClassify")
+	@ResponseBody
+	public List<Classify> getAllClassify() {
+		List<Classify> selectList = classifySer.selectList(new EntityWrapper<Classify>().orderBy("classify_weight", false));
+		return selectList;
+	}
 	
 	/**
 	 * 修改分类

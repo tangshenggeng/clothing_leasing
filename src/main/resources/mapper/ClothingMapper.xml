@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yj.clothing.mapper.ClothingMapper">
+
+    <!-- 开启二级缓存 -->
+    <!-- <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/> -->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yj.clothing.beans.Clothing">
+        <id column="clothing_id" property="clothingId" />
+        <result column="clothing_ident" property="clothingIdent" />
+        <result column="clothing_name" property="clothingName" />
+        <result column="clothing_describe" property="clothingDescribe" />
+        <result column="clothing_price" property="clothingPrice" />
+        <result column="clothing_stock" property="clothingStock" />
+        <result column="clothing_img_one" property="clothingImgOne" />
+        <result column="clothing_img_two" property="clothingImgTwo" />
+        <result column="clothing_img_three" property="clothingImgThree" />
+        <result column="clothing_state" property="clothingState" />
+        <result column="clothing_classify_id" property="clothingClassifyId" />
+        <result column="create_time" property="createTime" />
+        <result column="is_del" property="isDel" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        clothing_id, clothing_ident, clothing_name, clothing_describe, clothing_price, clothing_stock, clothing_img_one, clothing_img_two, clothing_img_three, clothing_state, clothing_classify_id, create_time, is_del
+    </sql>
+
+</mapper>

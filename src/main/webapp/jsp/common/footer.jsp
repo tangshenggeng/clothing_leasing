@@ -83,5 +83,4 @@
          <!-- Google Map JS -->
          <script src="http://ditu.google.cn/maps/api/js?key=AIzaSyBvEEMx3XDpByNzYNn0n62Zsq_sVYPx1zY"></script>
          <!-- Countdown Timer Script -->
-         <%-- <script src="${PATH}/jsp/assets/js/timer.js"></script> --%>
       </footer>
