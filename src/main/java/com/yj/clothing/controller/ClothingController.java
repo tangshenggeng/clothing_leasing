@@ -12,6 +12,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +23,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.yj.classify.beans.Classify;
+import com.yj.classify.service.ClassifyService;
 import com.yj.clothing.beans.Clothing;
 import com.yj.clothing.service.ClothingService;
 import com.yj.utils.AnalysisKeyWordsListUtils;
@@ -43,6 +47,82 @@ public class ClothingController {
 	
 	@Autowired
 	private ClothingService clothingSer;
+	
+	@Autowired
+	private ClassifyService classSer;
+	
+	/**
+	 * 去往加入购物车
+	 * */
+	@RequestMapping(value="/toAddCartPage/{ident}")
+	public String toAddCartPage(@PathVariable("ident")String ident,Model model) {
+		Clothing clo = clothingSer.selectOne(new EntityWrapper<Clothing>().eq("clothing_ident",ident));
+		model.addAttribute("clo",clo);
+		return "forward:/jsp/clothings/simple.jsp";
+	}
+	
+	/**
+	 * 得到服装前台展示
+	 * @return 
+	 * */
+	@RequestMapping(value="/getClothingList",method=RequestMethod.POST)
+	@ResponseBody
+	public Page<Map<String, Object>> getClothingList(@RequestBody HashMap<String, Object> map) {
+		Integer page = (Integer) map.get("page");
+		String condition = (String) map.get("condition");
+		String keyword = (String) map.get("keyword");
+		String ident = (String) map.get("ident");
+		Integer limit = 9;
+		EntityWrapper<Clothing> wrapper = new EntityWrapper<>();
+		wrapper.eq("clothing_state","展示");
+		if(condition.equals("getAll")) {
+			wrapper.orderBy("clothing_id", true);
+		}else if(condition.equals("getByTime")){
+			wrapper.orderBy("clothing_id", false);
+		}else if(condition.equals("getByStock")) {
+			wrapper.orderBy("clothing_stock", false);
+		}else {
+			wrapper.orderBy("clothing_id", false);	
+		}
+		
+		if(!ident.equals("all")) {
+			Classify classify = classSer.selectOne(new EntityWrapper<Classify>().eq("classify_ident",ident));
+			wrapper.eq("clothing_classify_id",classify.getClassifyId());
+		}
+		
+		if(!keyword.equals("all")) {
+			wrapper.like("clothing_name",keyword).or().like("clothing_describe",keyword);
+		}
+		Page<Map<String, Object>> mapsPage = clothingSer.selectMapsPage(new Page<>(page, limit), wrapper);
+		return mapsPage;
+	}
+	
+	/**
+	 * 得到最新的服装用于展示(12个)
+	 * @return 
+	 * */
+	@RequestMapping("/getNewestClothingByShow")
+	@ResponseBody
+	public List<Clothing> getNewestClothingByShow() {
+		EntityWrapper<Clothing> wrapper = new EntityWrapper<>();
+		wrapper.setSqlSelect("clothing_ident AS clothingIdent,clothing_name AS clothingName,clothing_price AS clothingPrice,clothing_img_one AS clothingImgOne").eq("clothing_state", "展示")
+				.orderBy("clothing_id", false).last("LIMIT 12");
+		List<Clothing> list = clothingSer.selectList(wrapper);
+		return list;
+	}
+	/**
+	 * 得到最新的服装用于展示(12个)
+	 * @return 
+	 * */
+	@RequestMapping("/getSellWellClothingByShow")
+	@ResponseBody
+	public List<Clothing> getSellWellClothingByShow() {
+		EntityWrapper<Clothing> wrapper = new EntityWrapper<>();
+		wrapper.setSqlSelect("clothing_ident AS clothingIdent,clothing_name AS clothingName,clothing_price AS clothingPrice,clothing_img_one AS clothingImgOne").eq("clothing_state", "展示")
+		.orderBy("clothing_stock", false).last("LIMIT 12");
+		List<Clothing> list = clothingSer.selectList(wrapper);
+		return list;
+	}
 	
 	/**
 	 * 批量隐藏
@@ -241,5 +321,29 @@ public class ClothingController {
 	public String toHideClothingPage() {
 		return "/clothing/hide-clothing";
 	}
+	//查看所有的服装
+	@RequestMapping("/toGetAllClothingPage")
+	public String toGetAllClothingPage(Model model) {
+		model.addAttribute("condition","getAll");
+		model.addAttribute("ident","all");
+		model.addAttribute("keyword","all");
+		return "forward:/jsp/clothings/clothing-list.jsp";
+	}
+	@RequestMapping(value="/getByKeyword",method=RequestMethod.POST)
+	public String getByKeyword(Clothing clo,Model model) {
+		model.addAttribute("condition","getAll");
+		model.addAttribute("ident","all");
+		model.addAttribute("keyword",clo.getClothingDescribe());
+		return "forward:/jsp/clothings/clothing-list.jsp";
+	}
+	@RequestMapping(value="/getByIdent/{ident}")
+	public String getByIdent(@PathVariable("ident")String ident,Model model) {
+		model.addAttribute("condition","getAll");
+		model.addAttribute("ident",ident);
+		model.addAttribute("keyword","all");
+		return "forward:/jsp/clothings/clothing-list.jsp";
+	}
+	
+	
 }
 

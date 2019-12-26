@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author 应建
- * @since 2019-12-24
+ * @since 2019-12-26
  */
 @Service
 public class ClothingServiceImpl extends ServiceImpl<ClothingMapper, Clothing> implements ClothingService {

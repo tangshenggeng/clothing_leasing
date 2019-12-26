@@ -1,12 +1,8 @@
 package com.yj.classify.beans;
 
-import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
-
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
@@ -19,7 +15,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author 应建
- * @since 2019-12-22
+ * @since 2019-12-26
  */
 @TableName("tb_classify")
 public class Classify extends Model<Classify> {
@@ -50,13 +46,10 @@ public class Classify extends Model<Classify> {
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
     /**
      * 是否删除
      */
-    @TableField(fill = FieldFill.INSERT)
-    @TableLogic
     private Integer isDel;
 
 
@@ -121,11 +114,16 @@ public class Classify extends Model<Classify> {
         return this.classifyId;
     }
 
-	@Override
-	public String toString() {
-		return "Classify [classifyId=" + classifyId + ", classifyIdent=" + classifyIdent + ", classifyName="
-				+ classifyName + ", classifyWeight=" + classifyWeight + ", isShow=" + isShow + ", createTime="
-				+ createTime + ", isDel=" + isDel + "]";
-	}
-
+    @Override
+    public String toString() {
+        return "Classify{" +
+        ", classifyId=" + classifyId +
+        ", classifyIdent=" + classifyIdent +
+        ", classifyName=" + classifyName +
+        ", classifyWeight=" + classifyWeight +
+        ", isShow=" + isShow +
+        ", createTime=" + createTime +
+        ", isDel=" + isDel +
+        "}";
+    }
 }

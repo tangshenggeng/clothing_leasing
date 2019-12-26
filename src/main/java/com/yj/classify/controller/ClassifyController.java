@@ -32,12 +32,12 @@ import com.yj.utils.UUIDUtil;
  * </p>
  *
  * @author 应建
- * @since 2019-12-22
+ * @since 2019-12-26
  */
 @Controller
 @RequestMapping("/classify")
 public class ClassifyController {
-
+	
 	@Autowired
 	private ClassifyService classifySer;
 	
@@ -140,6 +140,7 @@ public class ClassifyController {
 	 * @return 
 	 * @throws ParseException 
 	 * */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value="/getShowClassifyList",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> getShowClassifyList(@RequestBody Map<Object,Object> kwMap) throws ParseException {
@@ -176,6 +177,7 @@ public class ClassifyController {
 	 * @return 
 	 * @throws ParseException 
 	 * */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@RequestMapping(value="/getHideClassifyList",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> getHideClassifyList(@RequestBody Map<Object,Object> kwMap) throws ParseException {

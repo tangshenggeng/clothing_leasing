@@ -23,7 +23,7 @@
 	                                    <li style="width:100%">
 	                                       <a href="#">服装分类</a>
 	                                       <ul id="getClassifyDiv">
-	                                          <li v-for="item in classifys"><a :href="'${PATH}/clothing/'+item.ident">{{item.name}}</a></li>
+	                                          <li v-for="item in classifys"><a :href="'${PATH}/clothing/getByIdent/'+item.ident">{{item.name}}</a></li>
 	                                       </ul>
 	                                    </li>
 	                                 </ul>
@@ -83,9 +83,9 @@
                               <li class="search">
                                  <a href="#"><i class="fas fa-search"></i></a>
                                  <div class="search_bar">
-                                    <form>
-                                       <input type="text" name="search" placeholder="输入服装关键字">
-                                       <span class="search_icon"><i class="fas fa-search"></i></span>
+                                    <form name="findByKWForm" action="${PATH}/clothing/getByKeyword" method="post">
+                                       <input type="text" name="clothingDescribe" placeholder="输入服装关键字">
+                                       <span onclick="document.findByKWForm.submit();" class="search_icon"><i class="fas fa-search"></i></span>
                                     </form>
                                  </div>
                               </li>
@@ -107,7 +107,6 @@
             		},created: function () {
             			//供应商
             			this.$http.get("${PATH}/classify/getClassifyByShow").then(function(response){
-            				console.log(response.body)
             				//成功
             				this.classifys=response.body;
             			},function(response) {
@@ -116,6 +115,10 @@
             			});
             		}          		
             	});
+            	function findByKWSpan(){
+            		var testform=document.getElementById("findByKWForm");
+                        testform.submit();
+            	}
             </script>
          </header>
 

@@ -133,647 +133,7 @@
                </div>
             </div>
          </div>
-         <div class="product-carousel">
-            <div class="tab-products">
-               <ul class="nav nav-tabs" id="myTab1" role="tablist">
-                  <li class="nav-item">
-                     <a class="nav-link active" id="tab-1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Arrival</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" id="tab-2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Winter</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" id="tab-3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">Summer</a>
-                  </li>
-               </ul>
-               <div class="tab-content" id="myTabContent-1">
-                  <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab-1">
-                     <div class="tab-product-1">
-                        <div class="titlebar">
-                           <div class="next-back">
-                              <span><a data-slide="prev" href="#Carousel-1" class="left carousel-control">Back</a></span>
-                              <span><a data-slide="next" href="#Carousel-1" class="right carousel-control">Next</a></span>
-                           </div>
-                        </div>
-                        <div class="carousel-area">
-                           <div id="Carousel-1" class="carousel slide" data-ride="carousel">
-                              <div class="carousel-inner">
-                                 <div class="carousel-item active">
-                                    <div class="product-item">
-                                       <div class="row">
-                                          <Ul>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-3-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-3-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-4-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-4-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-3-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-3-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-8-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-8-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                          </Ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="carousel-item">
-                                    <div class="product-item">
-                                       <div class="row">
-                                          <Ul>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="#">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-9-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-9-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-4-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-4-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-7-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-7-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-8-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-8-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                          </Ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab-2">
-                     <div class="tab-prouct-2">
-                        <div class="titlebar">
-                           <div class="next-back">
-                              <span><a data-slide="prev" href="#Carousel-2" class="left carousel-control">Back</a></span>
-                              <span><a data-slide="next" href="#Carousel-2" class="right carousel-control">Next</a></span>
-                           </div>
-                        </div>
-                        <div class="carousel-area">
-                           <div id="Carousel-2" class="carousel slide" data-ride="carousel">
-                              <div class="carousel-inner">
-                                 <div class="carousel-item active">
-                                    <div class="product-item">
-                                       <div class="row">
-                                          <Ul>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-8-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-8-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-4-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-4-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-7-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-7-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-8-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-8-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                          </Ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="carousel-item">
-                                    <div class="product-item">
-                                       <div class="row">
-                                          <Ul>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-2-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-2-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-2-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-2-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-1-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-1-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-1-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-1-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                          </Ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab-3">
-                     <div class="tab-prouct-3">
-                        <div class="titlebar">
-                           <div class="next-back">
-                              <span><a data-slide="prev" href="#Carousel-3" class="left carousel-control">Back</a></span>
-                              <span><a data-slide="next" href="#Carousel-3" class="right carousel-control">Next</a></span>
-                           </div>
-                        </div>
-                        <div class="carousel-area">
-                           <div id="Carousel-3" class="carousel slide" data-ride="carousel">
-                              <div class="carousel-inner">
-                                 <div class="carousel-item active">
-                                    <div class="product-item">
-                                       <div class="row">
-                                          <Ul>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-5-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-5-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-6-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-6-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-5-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-5-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-6-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-6-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                          </Ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="carousel-item">
-                                    <div class="product-item">
-                                       <div class="row">
-                                          <Ul>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-3-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-3-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-4-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/men-4-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-3-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-3-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <div class="product-grid">
-                                                   <div class="product-image">
-                                                      <a href="configurable.html">
-                                                      <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-4-1.jpg" alt="Product image">
-                                                      <img class="pic-2" src="${PATH}/jsp/assets/images/products/women-4-2.jpg" alt="Product image">
-                                                      </a>
-                                                      <ul class="social">
-                                                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                                                         <li><a href="#" data-tip="Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                                                         <li><a href="#" data-tip="Compare"><i class="fas fa-exchange-alt"></i></a></li>
-                                                      </ul>
-                                                   </div>
-                                                   <h3 class="title">Lorem ipsum dolor</h3>
-                                                   <div class="product-content">
-                                                      <div class="price">$16.00
-                                                         <span>$20.00</span>
-                                                      </div>
-                                                      <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                                   </div>
-                                                </div>
-                                             </li>
-                                          </Ul>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+        
       </div>
       <div class="countdownTimer-area">
          <div class="container">
@@ -806,7 +166,7 @@
                         </div> -->
                         <p id="time-up"></p>
                      </div>
-                     <div class="view-all"><a href="shop.html">所有产品</a></div>
+                     <div class="view-all"><a href="${PATH}/clothing/toGetAllClothingPage">所有产品</a></div>
                   </div>
                </div>
             </div>
@@ -827,80 +187,19 @@
                   </div>
                   <div class="mini-carousel-area">
                      <div id="Carousel-4" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" id="newestClothing">
                            <div class="carousel-item active">
                               <div class="product-item">
                                  <Ul>
-                                    <li>
+                                    <li v-for="(item,index) in newestClothings" v-if="index < 6">
                                        <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-1-1.jpg" alt="Product image">
+                                          <img class="pic-1" :src="item.clothingImgOne" alt="服装图">
                                        </div>
                                        <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
+                                          <div class="title"><a :href="'${PATH}/clothing/toAddCartPage/'+item.clothingIdent">{{item.clothingName}}</a></div>
+                                          <div class="price">￥ {{item.clothingPrice}}
                                           </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-2-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-3-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-4-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-5-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-2-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
+                                          <a class="add-to-cart" :href="'${PATH}/clothing/toAddCartPage/'+item.clothingIdent">加入购物车</a>
                                        </div>
                                     </li>
                                  </Ul>
@@ -909,76 +208,15 @@
                            <div class="carousel-item">
                               <div class="product-item">
                                  <Ul>
-                                    <li>
+                                   <li v-for="(item,index) in newestClothings" v-if="index >= 6">
                                        <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-3-1.jpg" alt="Product image">
+                                          <img class="pic-1" :src="item.clothingImgOne" alt="服装图">
                                        </div>
                                        <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
+                                          <div class="title"><a :href="'${PATH}/clothing/toAddCartPage/'+item.clothingIdent">{{item.clothingName}}</a></div>
+                                          <div class="price">￥ {{item.clothingPrice}}
                                           </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-9-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-5-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-8-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-6-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-7-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
+                                          <a class="add-to-cart" :href="'${PATH}/clothing/toAddCartPage/'+item.clothingIdent">加入购物车</a>
                                        </div>
                                     </li>
                                  </Ul>
@@ -1000,80 +238,19 @@
                   </div>
                   <div class="mini-carousel-area">
                      <div id="Carousel-5" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
+                        <div class="carousel-inner"  id="sellwellClothing">
                            <div class="carousel-item active">
                               <div class="product-item">
                                  <Ul>
-                                    <li>
+                                    <li v-for="(item,index) in sellwellClothings" v-if="index < 6">
                                        <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-3-1.jpg" alt="Product image">
+                                          <img class="pic-1" :src="item.clothingImgOne" alt="服装图">
                                        </div>
                                        <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
+                                          <div class="title"><a :href="'${PATH}/clothing/toAddCartPage/'+item.clothingIdent">{{item.clothingName}}</a></div>
+                                          <div class="price">￥ {{item.clothingPrice}}
                                           </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-9-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-5-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-8-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-6-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-7-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
+                                          <a class="add-to-cart" :href="'${PATH}/clothing/toAddCartPage/'+item.clothingIdent">加入购物车</a>
                                        </div>
                                     </li>
                                  </Ul>
@@ -1082,76 +259,15 @@
                            <div class="carousel-item">
                               <div class="product-item">
                                  <Ul>
-                                    <li>
+                                    <li v-for="(item,index) in sellwellClothings" v-if="index >= 6">
                                        <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-6-1.jpg" alt="Product image">
+                                          <img class="pic-1" :src="item.clothingImgOne" alt="服装图">
                                        </div>
                                        <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
+                                          <div class="title"><a :href="'${PATH}/clothing/toAddCartPage/'+item.clothingIdent">{{item.clothingName}}</a></div>
+                                          <div class="price">￥ {{item.clothingPrice}}
                                           </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-8-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-3-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-4-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/women-5-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
-                                       </div>
-                                    </li>
-                                    <li>
-                                       <div class="mini-img">
-                                          <img class="pic-1" src="${PATH}/jsp/assets/images/products/men-2-1.jpg" alt="Product image">
-                                       </div>
-                                       <div class="mini-content">
-                                          <div class="title"><a href="configurable.html">Lorem ipsum dolor</a></div>
-                                          <div class="price">$16.00
-                                             <span>$20.00</span>
-                                          </div>
-                                          <a class="add-to-cart" href="cart.html">Add To Cart</a>
+                                          <a class="add-to-cart" :href="'${PATH}/clothing/toAddCartPage/'+item.clothingIdent">加入购物车</a>
                                        </div>
                                     </li>
                                  </Ul>
@@ -1278,5 +394,41 @@
       <!-- 静态引入底部 -->
       <%@ include file="/jsp/common/footer.jsp"%>
       <%-- <script src="${PATH}/jsp/assets/js/timer.js"></script> --%>
+      
    </body>
+<script>
+var newestClothing = new Vue({
+	el:"#newestClothing",
+	data:{
+		newestClothings:[]
+	},created: function () {
+		//供应商
+		this.$http.get("${PATH}/clothing/getNewestClothingByShow").then(function(response){
+			//成功
+			this.newestClothings=response.body;
+		},function(response) {
+			//错误
+			console.log("系统错误！")
+		});
+	}          		
+});
+var sellwellClothing = new Vue({
+	el:"#sellwellClothing",
+	data:{
+		sellwellClothings:[]
+	},created: function () {
+		//供应商
+		this.$http.get("${PATH}/clothing/getSellWellClothingByShow").then(function(response){
+			console.log(response.body)
+			//成功
+			this.sellwellClothings=response.body;
+		},function(response) {
+			//错误
+			console.log("系统错误！")
+		});
+	}          		
+});
+
+
+</script>
 </html>

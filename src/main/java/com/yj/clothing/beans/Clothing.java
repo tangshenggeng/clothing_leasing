@@ -1,12 +1,8 @@
 package com.yj.clothing.beans;
 
-import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
-
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
@@ -19,7 +15,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author 应建
- * @since 2019-12-24
+ * @since 2019-12-26
  */
 @TableName("tb_clothing")
 public class Clothing extends Model<Clothing> {
@@ -74,13 +70,10 @@ public class Clothing extends Model<Clothing> {
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
     /**
      * 是否删除
      */
-    @TableField(fill = FieldFill.INSERT)
-    @TableLogic
     private Integer isDel;
 
 

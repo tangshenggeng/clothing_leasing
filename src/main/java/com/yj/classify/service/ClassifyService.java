@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author 应建
- * @since 2019-12-22
+ * @since 2019-12-26
  */
 public interface ClassifyService extends IService<Classify> {
 
