@@ -80,7 +80,7 @@ public class ClothingController {
 		}else if(condition.equals("getByTime")){
 			wrapper.orderBy("clothing_id", false);
 		}else if(condition.equals("getByStock")) {
-			wrapper.orderBy("clothing_stock", false);
+			wrapper.orderBy("usage_count", false);
 		}else {
 			wrapper.orderBy("clothing_id", false);	
 		}
@@ -256,8 +256,9 @@ public class ClothingController {
 	 * */
 	@RequestMapping(value="/addClothing",method=RequestMethod.POST)
 	@ResponseBody
-	public Msg addClassify(Clothing clo) {
+	public Msg addClothing(Clothing clo) {
 		clo.setClothingIdent(UUIDUtil.createUUID());
+		clo.setUsageCount(0);
 		Integer classifyId = clo.getClothingClassifyId();
 		if(classifyId==0) {
 			return Msg.fail().add("msg", "请选择所属分类！");

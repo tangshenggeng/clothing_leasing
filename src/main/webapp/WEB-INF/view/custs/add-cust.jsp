@@ -19,7 +19,7 @@
 <div class="layui-layout layui-layout-admin">
   <%@ include file="/WEB-INF/view/common/header.jsp"%>
   <%-- <%@ include file="/WEB-INF/view/common/left-nav.jsp"%>  --%>
-  <div class="layui-container">
+  <div class="layui-container" style="overflow-y: auto;position: fixed;top: 60px;bottom: 44px;left: 12%">
     <div style="padding: 15px;">
     	<blockquote class="layui-elem-quote">
 		<a href="${PATH}/admin/index">主页</a> /

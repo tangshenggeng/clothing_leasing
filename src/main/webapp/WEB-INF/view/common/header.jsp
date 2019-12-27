@@ -33,9 +33,11 @@
       <li class="layui-nav-item">
         <a href="javascript:;"><i class="layui-icon layui-icon-tabs"></i> 订单管理</a>
         <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
+          <dd><a href="${PATH}/order/toBeforeSendOrderPage">待发货</a></dd>
+          <dd><a href="${PATH}/order/toAfterSendOrderPage">已发货</a></dd>
+          <dd><a href="${PATH}/order/toConfirmOrderPage">确认收货</a></dd>
+          <dd><a href="${PATH}/order/toGiveBackOrderPage">返还中</a></dd>
+          <dd><a href="${PATH}/order/toCompleteOrderPage">完成</a></dd>
         </dl>
       </li>
       <li class="layui-nav-item">

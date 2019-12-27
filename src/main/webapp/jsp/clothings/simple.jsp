@@ -30,12 +30,12 @@
    <body>
       <div class="container">
           <%@ include file="/jsp/common/header.jsp"%>
+         </div>
          
-         
-         <div class="shop-detail">
+         <div class="shop-detail" style="padding-left: 50px">
             <div class="breadcrumb-area">
                <ul>
-                  <li><a href="index.html">主页</a></li>
+                  <li><a href="${PATH}/jsp/index.jsp">主页</a></li>
                   <li><span>购物车</span></li>
                </ul>
             </div>
@@ -90,14 +90,14 @@
                      <div class="quantity">
                         <label>数量:</label>                      
                         <div class="cart-plus-minus">
-                           <input type="text" value="1">
+                           <input type="text" id="clotingCount" value="50">
                            <div class="dec qtybutton">-</div>
                            <div class="inc qtybutton">+</div>
                         </div>
                      </div>
                      <div class="cart-options">
-                        <form action="#" class="cart-form">
-                           <button class="btn theme-btn">加入购物车</button>
+                        <form class="cart-form">
+                           <button type="button" id="addCartBtn" class="btn theme-btn">加入购物车</button>
                         </form>
                      </div>
                   </div>
@@ -105,5 +105,45 @@
             </div>
       </div>
       <%@ include file="/jsp/common/footer.jsp"%>
+      <script src="${PATH}/static/layui/layui.all.js"></script>
    </body>
+<script>
+$("#addCartBtn").click(function(){
+	layui.use( 'layer', function() {
+		var layer = layui.layer;
+		var custId = "${sessionScope.ident}"
+		if(custId==""){
+			layer.msg("请登录！",function(){
+				window.location.href="${PATH}/customer/loginOut";
+			});
+		}
+		var cloId = "${clo.clothingId}"
+		var count = $("#clotingCount").val()
+		if(count==""||count==0){
+			layer.msg("请输入数量！");
+			return false;
+		}
+		$.ajax({
+			url:"${PATH}/cart/addCartByCust",
+			method:"post",
+			contentType: "application/json",//必须指定，否则会报415错误
+	        dataType : 'json',
+			data:JSON.stringify({
+				custId:custId,cloId:cloId,count:count
+			}),
+			success:function(res){
+				if(res.code==100){
+					layer.msg(res.extend.msg,{icon:6},function(){
+						location.reload()
+					})
+				}else{
+					layer.msg(res.extend.msg,{icon:5})	
+				}
+			},error:function(){
+				layer.msg("系统错误")
+			}
+		});
+	})
+});
+</script>
 </html>

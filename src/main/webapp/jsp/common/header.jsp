@@ -18,7 +18,7 @@
                                  <a href="${PATH}/jsp/index.jsp">首页</a>
                               </li>
 	                              <li>
-	                                 <a href="shop.html">服装</a>
+	                                 <a href="${PATH}/clothing/toGetAllClothingPage">服装</a>
 	                                 <ul class="mega-menu" style="min-width:200px;width: 200px">
 	                                    <li style="width:100%">
 	                                       <a href="#">服装分类</a>
@@ -29,7 +29,7 @@
 	                                 </ul>
 	                              </li>
 	                              <li>
-	                                 <a href="blog-2-col.html">新闻</a>
+	                                 <a href="#">新闻</a>
 	                                 <ul class="submenu">
 	                                 	<!-- 博客的分类 -->
 	                                 	<li><a href="/clothing_leasing/clothing/72BAFA6FA7">节日服</a></li>
@@ -62,6 +62,11 @@
 										<li class="shop-cart">
 		                                 <i class="fas fa-user"></i> 欢迎您：<em>${sessionScope.name}</em>
 		                                 <ul class="minicart">
+		                                    <li>
+		                                       <div class="checkout-btn">
+		                                          <a href="${PATH}/cart/getMyCart/${sessionScope.ident}">我的购物车</a>
+		                                       </div>
+		                                    </li>
 		                                    <li>
 		                                       <div class="checkout-btn">
 		                                          <a href="${PATH}/order/getMyOrders/${sessionScope.ident}">我的订单</a>

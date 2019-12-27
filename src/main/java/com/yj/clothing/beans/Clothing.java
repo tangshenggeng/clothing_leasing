@@ -1,8 +1,12 @@
 package com.yj.clothing.beans;
 
+import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.activerecord.Model;
@@ -68,12 +72,19 @@ public class Clothing extends Model<Clothing> {
      */
     private Integer clothingClassifyId;
     /**
+     * 被租用的次数
+     */
+    private Integer usageCount;
+    /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
     /**
      * 是否删除
      */
+    @TableField(fill = FieldFill.INSERT)
+    @TableLogic
     private Integer isDel;
 
 
@@ -186,22 +197,23 @@ public class Clothing extends Model<Clothing> {
         return this.clothingId;
     }
 
-    @Override
-    public String toString() {
-        return "Clothing{" +
-        ", clothingId=" + clothingId +
-        ", clothingIdent=" + clothingIdent +
-        ", clothingName=" + clothingName +
-        ", clothingDescribe=" + clothingDescribe +
-        ", clothingPrice=" + clothingPrice +
-        ", clothingStock=" + clothingStock +
-        ", clothingImgOne=" + clothingImgOne +
-        ", clothingImgTwo=" + clothingImgTwo +
-        ", clothingImgThree=" + clothingImgThree +
-        ", clothingState=" + clothingState +
-        ", clothingClassifyId=" + clothingClassifyId +
-        ", createTime=" + createTime +
-        ", isDel=" + isDel +
-        "}";
-    }
+	public Integer getUsageCount() {
+		return usageCount;
+	}
+
+	public void setUsageCount(Integer usageCount) {
+		this.usageCount = usageCount;
+	}
+
+	@Override
+	public String toString() {
+		return "Clothing [clothingId=" + clothingId + ", clothingIdent=" + clothingIdent + ", clothingName="
+				+ clothingName + ", clothingDescribe=" + clothingDescribe + ", clothingPrice=" + clothingPrice
+				+ ", clothingStock=" + clothingStock + ", clothingImgOne=" + clothingImgOne + ", clothingImgTwo="
+				+ clothingImgTwo + ", clothingImgThree=" + clothingImgThree + ", clothingState=" + clothingState
+				+ ", clothingClassifyId=" + clothingClassifyId + ", usageCount=" + usageCount + ", createTime="
+				+ createTime + ", isDel=" + isDel + "]";
+	}
+
+   
 }
