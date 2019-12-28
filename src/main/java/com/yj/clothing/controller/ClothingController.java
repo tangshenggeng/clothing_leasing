@@ -158,7 +158,7 @@ public class ClothingController {
 	 * */
 	@RequestMapping(value="/delClothingByIds",method=RequestMethod.POST)
 	@ResponseBody
-	public Msg delClassifyByIds(@RequestBody ArrayList<Integer> list) {
+	public Msg delClothingByIds(@RequestBody ArrayList<Integer> list) {
 		boolean b = clothingSer.deleteBatchIds(list);
 		if(!b) {
 			return Msg.fail().add("msg","删除失败！");

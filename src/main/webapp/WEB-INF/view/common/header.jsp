@@ -43,9 +43,9 @@
       <li class="layui-nav-item">
         <a href="javascript:;"><i class="layui-icon layui-icon-log"></i> 新闻管理</a>
         <dl class="layui-nav-child">
-          <dd><a href="">邮件管理</a></dd>
-          <dd><a href="">消息管理</a></dd>
-          <dd><a href="">授权管理</a></dd>
+          <dd><a href="${PATH}/news/toAddNewsPage">编写新闻</a></dd>
+          <dd><a href="${PATH}/news/toShowNewsPage">展示的新闻</a></dd>
+          <dd><a href="${PATH}/news/toHideNewsPage">隐藏的新闻</a></dd>
         </dl>
       </li>
     </ul>

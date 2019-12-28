@@ -83,7 +83,7 @@ input[type=number]::-webkit-outer-spin-button {
                                  <td class="product-name" style="color: orange;">{{item.orderState}}</td>
                                  <td class="product-name">{{item.createTime | moment}}</td>
                                  <td class="product-remove">
-                                 	<a v-if="item.orderState==='待发货'" href="javascript:;"  v-on:click="urgeDeliver(item.orderNum)">查看</a>
+                                 	<a v-if="item.orderState==='待发货'||item.orderState==='确认收货'||item.orderState==='返还中'" href="javascript:;"  v-on:click="urgeDeliver(item.orderNum)">查看</a>
                                  	<a v-if="item.orderState==='待发货'" href="javascript:;"  v-on:click="modifyAddr(item)" >修改</a>
                                  	<a v-if="item.orderState==='已发货'" href="javascript:;"  v-on:click="lookExpress(item.expressCom,item.expressNum)">查看物流</a>
 									<a v-if="item.orderState==='已发货'" href="javascript:;"  v-on:click="confirmGet(item.orderNum)">确认收货</a>
@@ -131,6 +131,44 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 	</div>
 </div>
+<div style="display: none;" id="writeAddrModal">
+	<div class="layui-card">
+		<div  style="margin: 20px 20px">
+			<div class="site_con">
+				<div class="form_group">
+					<label>物流公司：</label>
+					<input type="text" id="expressComInput" readonly="readonly">
+				</div>
+				<div class="form_group">
+					<label>物流订单号：</label>
+					<input type="text" id="expressNumInput"  readonly="readonly">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="display: none;" id="giveBackComModel">
+	<div class="layui-card">
+			<div style="margin: 20px 20px">
+				<form  class="form-horizontal" id="giveBackForm">
+					<input type="hidden" id="giveBackOrderNum" name="orderNum"/>
+					<div class="form-group">
+						<label  for="giveBackExpressCom">物流公司：</label> 
+						<input class="form-control" name="expressCom" id="giveBackExpressCom" type="text" >
+					</div>
+					<div class="form-group">
+						<label for="giveBackExpressNum">物流订单号：</label> 
+						<input class="form-control" name="expressNum" id="giveBackExpressNum"  type="text" >
+					</div>
+					<div class="form-group">
+						<label >备注：</label> 
+						<textarea name="returnReason" class="form-control" placeholder="备注信息（可不填，请原路寄回）" rows="3"></textarea>
+					</div>
+					<input type="button" id="sumbitGiveBackBtn"  value="确认" class="btn btn-primary btn-sm">
+				</form>
+			</div>
+		</div>
+</div>
 </body>
 <script>
  	var custId = "${sessionScope.ident}"
@@ -170,7 +208,7 @@ var myOrders = new	Vue({
 				method:"get",
 				success:function(res){
 					console.log(res)
-					$("#cloInfoDiv").html("服装名称："+res.cloName)
+					$("#cloInfoDiv").html(res.cloName)
 				}
 			});
 			layui.layer.open({
@@ -196,7 +234,7 @@ var myOrders = new	Vue({
 				fix : true,
 				resize : false,
 				move : false,
-				area : [ '600px', '230px' ],
+				area : [ '600px', '300px' ],
 				shadeClose : false,
 				type : 1,
 				anim: 5,
@@ -225,7 +263,6 @@ var myOrders = new	Vue({
 			  layer.close(index);
 			});
 		},modifyAddr:function(item){	//修改地址
-			console.log(item)
 			$("#modifyOrderNum").val(item.orderNum)
 			$("#orderAddrInput").val(item.address)
 			$("#modifyConsignee").val(item.consignee)
@@ -244,7 +281,24 @@ var myOrders = new	Vue({
 					$('#modifyOrderInfoModel').css("display", "none")
 				}
 			 })
+		},giveBack:function(orderNum){		//返还
+			$("#giveBackOrderNum").val(orderNum)
+			layui.layer.open({
+				title : '返还服装',
+				fix : true,
+				resize : false,
+				move : false,
+				area : [ '800px', '500px' ],
+				shadeClose : false,
+				type : 1,
+				anim: 3,
+				content : $('#giveBackComModel'),
+				cancel : function(index, layero) {
+					$('#giveBackComModel').css("display", "none")
+				}
+			 })
 		}
+		
 	}
 });
 Vue.filter('moment', function (value, formatString) {
@@ -265,6 +319,35 @@ $("#sumbitModifyOrderBtn").click(function(){
 		var datas = $("#orderInfoModifyForm").serialize() 		 
 	 	$.ajax({
 	 		url:"${PATH}/order/modifyOrderInfoByCust",
+	 		method:"POST",
+	 		data:datas,
+	 		success:function(res){
+				if(res.code==100){
+					layer.msg(res.extend.msg,{icon:6},function(){
+						location.reload()   
+					})
+				}else{
+					layer.msg(res.extend.msg,{icon:5})	
+				}
+			},error:function(){
+				layer.msg("系统错误")
+			}
+	 	});
+	 })
+});
+//修改地址
+$("#sumbitGiveBackBtn").click(function(){
+	layui.use('layer' , function() {
+		var layer = layui.layer;
+		var name = $("#giveBackExpressCom").val()
+		var consignee = $("#giveBackExpressNum").val()
+		if(name==""||consignee==""){
+			layer.msg("请正确填写物流信息！")
+			return false;
+		}
+		var datas = $("#giveBackForm").serialize() 		 
+	 	$.ajax({
+	 		url:"${PATH}/order/giveBackByCust",
 	 		method:"POST",
 	 		data:datas,
 	 		success:function(res){

@@ -269,14 +269,14 @@
                               <li class="page-item">
                                  <a class="page-link" href="javascript:void(0);" v-on:click="previous(current-1)" aria-label="Previous">
                                  <span aria-hidden="true">&laquo;</span>
-                                 <span class="sr-only">Previous</span>
+                                 <span class="sr-only">上一页</span>
                                  </a>
                               </li>
                               <li class="page-item " v-for="item in pages" v-bind:class="{active: item==current }" ><a class="page-link" href="javascript:;" v-on:click="jumpToPage(item)">{{item}}</a></li>
                               <li class="page-item">
                                  <a class="page-link" href="javascript:void(0);" v-on:click="next(current+1)" aria-label="Next">
                                  <span aria-hidden="true">&raquo;</span>
-                                 <span class="sr-only">Next</span>
+                                 <span class="sr-only">下一页</span>
                                  </a>
                               </li>
                            </ul>

@@ -279,51 +279,25 @@
                </div>
             </div>
          </div>
-         <div class="blog-area">
-            <h1>博客</h1>
+         <div class="blog-area" id="getNewsByIndex">
+            <h1>最新新闻</h1>
             <div class="row">
-               <div class="col-lg-4 col-md-12 col-sm-12">
+               <div class="col-lg-4 col-md-12 col-sm-12" v-for="item in news">
                   <div class="blog">
-                     <img src="${PATH}/jsp/assets/images/blog1.jpg" alt="Image">                     
+                     <img style="width: 403px;height: 269px" :src="item.coverImg" alt="Image">                     
                      <div class="datetime">
-                        <span><i class="far fa-calendar-alt"></i> April, 30 2017</span>
-                        <span><i class="far fa-edit"></i> Gixco-Creative</span>
+                        <span><i class="far fa-calendar-alt"></i>  {{item.createTime | moment }}</span>
+                        <!-- <span><i class="far fa-edit"></i> Gixco-Creative</span> -->
                      </div>
-                     <h4 class="title"><a href="blog-detail.html">String Pocket Shelving Burgundy</a></h4>
+                     <h4 class="title"><a :href="'${PATH}/news/getByNewsIdent/'+item.newsIdent">{{item.newsTitle}}</a></h4>
                      <div class="post-text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-12 col-sm-12">
-                  <div class="blog">
-                     <img src="${PATH}/jsp/assets/images/blog2.jpg" alt="Image">                     
-                     <div class="datetime">
-                        <span><i class="far fa-calendar-alt"></i> April, 30 2017</span>
-                        <span><i class="far fa-edit"></i> Gixco-Creative</span>
-                     </div>
-                     <h4 class="title"><a href="blog-detail.html">String Pocket Shelving Burgundy</a></h4>
-                     <div class="post-text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-12 col-sm-12">
-                  <div class="blog">
-                     <img src="${PATH}/jsp/assets/images/blog3.jpg" alt="Image">                     
-                     <div class="datetime">
-                        <span><i class="far fa-calendar-alt"></i> April, 30 2017</span>
-                        <span><i class="far fa-edit"></i> Gixco-Creative</span>
-                     </div>
-                     <h4 class="title"><a href="blog-detail.html">String Pocket Shelving Burgundy</a></h4>
-                     <div class="post-text">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                        <p>{{item.newsSubheading}}</p>
                      </div>
                   </div>
                </div>
             </div>
          </div>
-         <div class="newsletter-area">
+         <!-- <div class="newsletter-area">
             <div class="newsletter">
                <h3>KEEP UPDATED</h3>
                <p>Sign up for our newletter to recevie updates an exlusive offers</p>
@@ -332,7 +306,7 @@
                   <button class="newsletter-btn">Subscribe</button>
                </div>
             </div>
-         </div>
+         </div> -->
          <div class="brands-area">
             <div class="carousel-area">
                <div id="brands" class="carousel slide" data-ride="carousel">
@@ -394,7 +368,7 @@
       <!-- 静态引入底部 -->
       <%@ include file="/jsp/common/footer.jsp"%>
       <%-- <script src="${PATH}/jsp/assets/js/timer.js"></script> --%>
-      
+      <script src="${PATH}/static/js/comment.js"></script>
    </body>
 <script>
 var newestClothing = new Vue({
@@ -419,7 +393,6 @@ var sellwellClothing = new Vue({
 	},created: function () {
 		//供应商
 		this.$http.get("${PATH}/clothing/getSellWellClothingByShow").then(function(response){
-			console.log(response.body)
 			//成功
 			this.sellwellClothings=response.body;
 		},function(response) {
@@ -428,7 +401,25 @@ var sellwellClothing = new Vue({
 		});
 	}          		
 });
-
-
+var getNewsByIndex = new Vue({
+	el:"#getNewsByIndex",
+	data:{
+		news:[]
+	},created: function () {
+		//供应商
+		this.$http.get("${PATH}/news/getNewsByIndex").then(function(response){
+			console.log(response.body)
+			//成功
+			this.news=response.body;
+		},function(response) {
+			//错误
+			console.log("系统错误！")
+		});
+	}          		
+});
+Vue.filter('moment', function (value, formatString) {
+    formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
+    return moment(value).format(formatString);
+});
 </script>
 </html>

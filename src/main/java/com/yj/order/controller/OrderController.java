@@ -56,6 +56,73 @@ public class OrderController {
 
 	@Autowired
 	private ClothingService cloSer;
+	
+	/**
+	 * 完成
+	 * */
+	@RequestMapping("/completeOrder/{orderNum}")
+	@ResponseBody
+	public Msg completeOrder(@PathVariable("orderNum")String orderNum) {
+		Order order = orderSer.selectOne(new EntityWrapper<Order>().eq("order_num", orderNum).eq("order_state", "返还中"));
+		if(order==null) {
+			return Msg.fail().add("msg", "订单不存在或状态不符");
+		}
+		order.setOrderState("完成");
+		boolean b = orderSer.updateById(order);
+		if(b) {
+			//库存回滚
+			List<Cart> carts = cartSer.selectList(new EntityWrapper<Cart>().eq("order_num", orderNum));
+			for (Cart cart : carts) {
+				Clothing clothing = cloSer.selectById(cart.getClothId());
+				clothing.setClothingStock(cart.getClothNum()+clothing.getClothingStock());
+				cloSer.updateById(clothing);	//这里有隐患
+			}
+			return Msg.success().add("msg", "成功");
+		}
+		return Msg.fail().add("msg", "失败");
+	} 
+	
+	@RequestMapping(value="/giveBackByCust",method=RequestMethod.POST)
+	@ResponseBody
+	public Msg giveBackByCust(Order o) {
+		String reason = o.getReturnReason();
+		if(reason.equals("")) {
+			o.setReturnReason("客户未备注信息");
+		}
+		Order order = orderSer.selectOne(new EntityWrapper<Order>().eq("order_num", o.getOrderNum()).eq("order_state", "确认收货"));
+		if(order==null) {
+			return Msg.fail().add("msg", "订单不存在或状态不符");
+		}
+		order.setReturnReason(o.getReturnReason());
+		order.setOrderState("返还中");
+		order.setExpressCom(o.getExpressCom());
+		order.setExpressNum(o.getExpressNum());
+		boolean b = orderSer.updateById(order);
+		if(b) {
+			return Msg.success().add("msg", "成功");
+		}
+		return Msg.fail().add("msg", "失败");
+	}
+	
+	/**
+	 * 客户确认收货
+	 * */
+	@RequestMapping("/confirmGetByCust/{orderNum}")
+	@ResponseBody
+	public Msg confirmGetByCust(@PathVariable("orderNum")String orderNum) {
+		Order order = orderSer.selectOne(new EntityWrapper<Order>().eq("order_num", orderNum).eq("order_state", "已发货"));
+		if(order==null) {
+			return Msg.fail().add("msg", "订单不存在或状态不符");
+		}
+		order.setOrderState("确认收货");
+		order.setReceivingTime(new Date());
+		boolean b = orderSer.updateById(order);
+		if(b) {
+			return Msg.success().add("msg", "成功");
+		}
+		return Msg.fail().add("msg", "失败");
+	}
+	
 	/**
 	 * 填写快递信息
 	 * */
@@ -88,7 +155,7 @@ public class OrderController {
 		return Msg.success().add("msg", "删除成功");
 	}
 	/**
-	 * 得到展示的服装
+	 * 得到待发货订单
 	 * @return 
 	 * @throws ParseException 
 	 * */
@@ -133,6 +200,190 @@ public class OrderController {
 		resultMap.put("data",mapsPage.getRecords());
 		return resultMap;
 	}
+	/**
+	 * 得到已发货订单
+	 * @return 
+	 * @throws ParseException 
+	 * */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@RequestMapping(value="/getAfterSendList",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> getAfterSendList(@RequestBody Map<Object,Object> kwMap) throws ParseException {
+		int page = (int) kwMap.get("page");
+		int limit = (int) kwMap.get("limit");
+		ArrayList<Map> arrayList = new ArrayList<>();
+		arrayList = (ArrayList<Map>) kwMap.get("kwdata");
+		AnalysisKeyWordsListUtils utils = new AnalysisKeyWordsListUtils();
+		HashMap<String, Object> afterMap = utils.analysisKeyWordsList(arrayList);
+		String orderNum = (String) afterMap.get("orderNum");
+		String keyword = (String) afterMap.get("keyword");
+		String payway = (String) afterMap.get("payway");
+		String start_date = (String) afterMap.get("start_date");
+		String end_date = (String) afterMap.get("end_date");
+		EntityWrapper<Order> wrapper = new EntityWrapper<>();
+		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+		if(!orderNum.equals("")) {
+			wrapper.eq("order_num", orderNum);
+		}
+		if(!payway.equals("0")) {
+			wrapper.eq("pay_way", payway);
+		}
+		
+		if(!keyword.equals("")) {
+			wrapper.like("consignee", keyword).or().like("address",keyword).or().like("phone",keyword);
+		}
+		if(!start_date.equals("") && !end_date.equals("")) {
+			Date startDate = format1.parse(start_date);
+			Date endDate = format1.parse(end_date);
+			wrapper.between("create_time", startDate, endDate);
+		}
+		wrapper.eq("order_state","已发货").orderBy("order_id", false);
+		Page<Map<String, Object>> mapsPage = orderSer.selectMapsPage(new Page<>(page, limit), wrapper);
+		Map<String,Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("status",0);
+		resultMap.put("message","所有已发货的订单");
+		resultMap.put("total",mapsPage.getTotal());
+		resultMap.put("data",mapsPage.getRecords());
+		return resultMap;
+	}
+	/**
+	 * 得到返还中的订单
+	 * @return 
+	 * @throws ParseException 
+	 * */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@RequestMapping(value="/getGiveBackList",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> getGiveBackList(@RequestBody Map<Object,Object> kwMap) throws ParseException {
+		int page = (int) kwMap.get("page");
+		int limit = (int) kwMap.get("limit");
+		ArrayList<Map> arrayList = new ArrayList<>();
+		arrayList = (ArrayList<Map>) kwMap.get("kwdata");
+		AnalysisKeyWordsListUtils utils = new AnalysisKeyWordsListUtils();
+		HashMap<String, Object> afterMap = utils.analysisKeyWordsList(arrayList);
+		String orderNum = (String) afterMap.get("orderNum");
+		String keyword = (String) afterMap.get("keyword");
+		String payway = (String) afterMap.get("payway");
+		String start_date = (String) afterMap.get("start_date");
+		String end_date = (String) afterMap.get("end_date");
+		EntityWrapper<Order> wrapper = new EntityWrapper<>();
+		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+		if(!orderNum.equals("")) {
+			wrapper.eq("order_num", orderNum);
+		}
+		if(!payway.equals("0")) {
+			wrapper.eq("pay_way", payway);
+		}
+		
+		if(!keyword.equals("")) {
+			wrapper.like("consignee", keyword).or().like("address",keyword).or().like("phone",keyword);
+		}
+		if(!start_date.equals("") && !end_date.equals("")) {
+			Date startDate = format1.parse(start_date);
+			Date endDate = format1.parse(end_date);
+			wrapper.between("create_time", startDate, endDate);
+		}
+		wrapper.eq("order_state","返还中").orderBy("order_id", false);
+		Page<Map<String, Object>> mapsPage = orderSer.selectMapsPage(new Page<>(page, limit), wrapper);
+		Map<String,Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("status",0);
+		resultMap.put("message","所有返还中的订单");
+		resultMap.put("total",mapsPage.getTotal());
+		resultMap.put("data",mapsPage.getRecords());
+		return resultMap;
+	}
+	/**
+	 * 得到确认收货订单
+	 * @return 
+	 * @throws ParseException 
+	 * */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@RequestMapping(value="/getConfirmList",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> getConfirmList(@RequestBody Map<Object,Object> kwMap) throws ParseException {
+		int page = (int) kwMap.get("page");
+		int limit = (int) kwMap.get("limit");
+		ArrayList<Map> arrayList = new ArrayList<>();
+		arrayList = (ArrayList<Map>) kwMap.get("kwdata");
+		AnalysisKeyWordsListUtils utils = new AnalysisKeyWordsListUtils();
+		HashMap<String, Object> afterMap = utils.analysisKeyWordsList(arrayList);
+		String orderNum = (String) afterMap.get("orderNum");
+		String keyword = (String) afterMap.get("keyword");
+		String payway = (String) afterMap.get("payway");
+		String start_date = (String) afterMap.get("start_date");
+		String end_date = (String) afterMap.get("end_date");
+		EntityWrapper<Order> wrapper = new EntityWrapper<>();
+		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+		if(!orderNum.equals("")) {
+			wrapper.eq("order_num", orderNum);
+		}
+		if(!payway.equals("0")) {
+			wrapper.eq("pay_way", payway);
+		}
+		
+		if(!keyword.equals("")) {
+			wrapper.like("consignee", keyword).or().like("address",keyword).or().like("phone",keyword);
+		}
+		if(!start_date.equals("") && !end_date.equals("")) {
+			Date startDate = format1.parse(start_date);
+			Date endDate = format1.parse(end_date);
+			wrapper.between("create_time", startDate, endDate);
+		}
+		wrapper.eq("order_state","确认收货").orderBy("order_id", false);
+		Page<Map<String, Object>> mapsPage = orderSer.selectMapsPage(new Page<>(page, limit), wrapper);
+		Map<String,Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("status",0);
+		resultMap.put("message","所有确认收货的订单");
+		resultMap.put("total",mapsPage.getTotal());
+		resultMap.put("data",mapsPage.getRecords());
+		return resultMap;
+	}
+	/**
+	 * 得到完成的订单
+	 * @return 
+	 * @throws ParseException 
+	 * */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@RequestMapping(value="/getCompleteList",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> getCompleteList(@RequestBody Map<Object,Object> kwMap) throws ParseException {
+		int page = (int) kwMap.get("page");
+		int limit = (int) kwMap.get("limit");
+		ArrayList<Map> arrayList = new ArrayList<>();
+		arrayList = (ArrayList<Map>) kwMap.get("kwdata");
+		AnalysisKeyWordsListUtils utils = new AnalysisKeyWordsListUtils();
+		HashMap<String, Object> afterMap = utils.analysisKeyWordsList(arrayList);
+		String orderNum = (String) afterMap.get("orderNum");
+		String keyword = (String) afterMap.get("keyword");
+		String payway = (String) afterMap.get("payway");
+		String start_date = (String) afterMap.get("start_date");
+		String end_date = (String) afterMap.get("end_date");
+		EntityWrapper<Order> wrapper = new EntityWrapper<>();
+		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+		if(!orderNum.equals("")) {
+			wrapper.eq("order_num", orderNum);
+		}
+		if(!payway.equals("0")) {
+			wrapper.eq("pay_way", payway);
+		}
+		
+		if(!keyword.equals("")) {
+			wrapper.like("consignee", keyword).or().like("address",keyword).or().like("phone",keyword);
+		}
+		if(!start_date.equals("") && !end_date.equals("")) {
+			Date startDate = format1.parse(start_date);
+			Date endDate = format1.parse(end_date);
+			wrapper.between("create_time", startDate, endDate);
+		}
+		wrapper.eq("order_state","完成").orderBy("order_id", false);
+		Page<Map<String, Object>> mapsPage = orderSer.selectMapsPage(new Page<>(page, limit), wrapper);
+		Map<String,Object> resultMap = new HashMap<String, Object>();
+		resultMap.put("status",0);
+		resultMap.put("message","所有完成的订单");
+		resultMap.put("total",mapsPage.getTotal());
+		resultMap.put("data",mapsPage.getRecords());
+		return resultMap;
+	}
 	
 	/**
 	 * 查看订单的服装信息
@@ -145,7 +396,7 @@ public class OrderController {
 		String cloName = "";
 		for (Cart cart : list) {
 			Clothing clothing = cloSer.selectById(cart.getClothId());
-			cloName += clothing.getClothingName()+"&nbsp;&nbsp;&nbsp;&nbsp;，";
+			cloName += "服装名称："+clothing.getClothingName()+"&nbsp;&nbsp;&nbsp;&nbsp;，数量："+cart.getClothNum()+"<br/>";
 		}
 		map.put("cloName",cloName);
 		return map;
@@ -244,6 +495,26 @@ public class OrderController {
 	@RequestMapping("/toBeforeSendOrderPage")
 	public String toBeforeSendOrderPage() {
 		return "/orders/before-list";
+	}
+	//去往已发货页面
+	@RequestMapping("/toAfterSendOrderPage")
+	public String toAfterSendOrderPage() {
+		return "/orders/after-list";
+	}
+	//去往确认收货页面
+	@RequestMapping("/toConfirmOrderPage")
+	public String toConfirmOrderPage() {
+		return "/orders/confirm-list";
+	}
+	//去往确认收货页面
+	@RequestMapping("/toGiveBackOrderPage")
+	public String toGiveBackOrderPage() {
+		return "/orders/giveBack-list";
+	}
+	//去往完成页面
+	@RequestMapping("/toCompleteOrderPage")
+	public String toCompleteOrderPage() {
+		return "/orders/complete-list";
 	}
 }
 

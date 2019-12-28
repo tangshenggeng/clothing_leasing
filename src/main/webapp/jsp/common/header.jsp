@@ -29,26 +29,22 @@
 	                                 </ul>
 	                              </li>
 	                              <li>
-	                                 <a href="#">新闻</a>
-	                                 <ul class="submenu">
-	                                 	<!-- 博客的分类 -->
-	                                 	<li><a href="/clothing_leasing/clothing/72BAFA6FA7">节日服</a></li>
-	                                 </ul>
+	                                 <a href="${PATH}/jsp/news/news.jsp">新闻</a>
 	                              </li>
                               <li>
                                  <a href="#">关于我们</a>
                                  <ul class="submenu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="404.html">404</a></li>
+                                    <li><a href="#">关于我们</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Login</a></li>
+                                    <li><a href="#">Register</a></li>
+                                    <li><a href="#">Shopping Cart</a></li>
+                                    <li><a href="#">Checkout</a></li>
+                                    <li><a href="#">Wishlist</a></li>
+                                    <li><a href="#">404</a></li>
                                  </ul>
                               </li>
-                              <li><a href="contact.html">联系我们</a></li>
+                              <li><a href="${PATH}/jsp/contact.jsp">联系我们</a></li>
                            </ul>
                         </nav>
                      </div>

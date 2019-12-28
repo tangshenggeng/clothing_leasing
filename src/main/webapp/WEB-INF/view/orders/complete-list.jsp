@@ -33,7 +33,7 @@ input[type=number]::-webkit-outer-spin-button {
     <div style="padding: 15px;">
     	<blockquote class="layui-elem-quote">
 		<a href="${PATH}/admin/index">主页</a> /
-		<a>待发货的订单</a>
+		<a>完成的订单</a>
 	</blockquote>
 		<form class="layui-form" id="kwCustForm">
 		<div class="layui-col-md3">
@@ -92,9 +92,8 @@ input[type=number]::-webkit-outer-spin-button {
 			<div class="layui-col-md12">
 				<div class="card">
 					<div class="card-header">
-						<h2>待发货的订单列表</h2><br>
+						<h2>完成的订单列表</h2><br>
 						<button class="layui-btn layui-btn-danger" type="button" id="delByIds"><i class="layui-icon layui-icon-delete"></i>删除选中</button>
-						<button class="layui-btn " type="button" id="exceptionCustBtn"><i class="layui-icon layui-icon-edit"></i>一键发货</button>
 					</div>
 					<div class="card-body">
 						<table id="dataListTb" lay-filter="dataTbFilter" class="table table-responsive table-hover">
@@ -112,31 +111,6 @@ input[type=number]::-webkit-outer-spin-button {
   </div>
 </div>
 <!-- 模态框 -->
-<div style="display: none;" id="deliveryModal">
-		<div class="layui-card">
-			<form class="layui-form" style="margin: 20px">
-			<input type="hidden" id="deliveryOrderIds" name="cartIds"><!-- 订单id -->
-			  <div class="layui-form-item">
-			    <label class="layui-form-label">快递公司</label>
-			    <div class="layui-input-block">
-			      <input type="text" name="expressCom" required  lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
-			    </div>
-			  </div>
-			  <div class="layui-form-item">
-			    <label class="layui-form-label">快递单号</label>
-			    <div class="layui-input-block">
-			      <input type="text" name="expressNum" required  lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
-			    </div>
-			  </div>
-			  <div class="layui-form-item">
-			    <div class="layui-input-block">
-			      <button class="layui-btn" lay-submit lay-filter="formDelivery">立即提交</button>
-			      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-			    </div>
-			  </div>
-			</form>
-		</div>
-	</div>
 	<!--查看服装信息  -->
 	<div style="display: none;" id="lookCloInfoModel">
 	<div  style="margin: 20px 20px">
@@ -147,41 +121,7 @@ input[type=number]::-webkit-outer-spin-button {
 			</div>
 	</div>
 </div>
-	<div style="display: none;" id="editConsigneeModel">
-	<div  style="margin: 20px 20px">
-		<div class="panel panel-default">
-			  <div class="panel-body">
-			    <form class="layui-form">
-			    	<input type="hidden" id="editConsigneeOrderNum" name="orderNum"/>
-					 <div class="layui-form-item">
-					   <label class="layui-form-label">收货人</label>
-					   <div class="layui-input-block">
-					     <input type="text" id="editConsigneeName" name="consignee" required  lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
-					   </div>
-					 </div>
-					 <div class="layui-form-item">
-					   <label class="layui-form-label">联系方式</label>
-					   <div class="layui-input-block">
-					     <input type="number" id="editConsigneePhone" name="phone" required  lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
-					   </div>
-					 </div>
-					 <div class="layui-form-item">
-					   <label class="layui-form-label">地址</label>
-					   <div class="layui-input-block">
-					     <input type="text" id="editConsigneeAddress" name="address" required  lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input">
-					   </div>
-					 </div>
-					 <div class="layui-form-item">
-					    <div class="layui-input-block">
-					      <button class="layui-btn" lay-submit lay-filter="editConsigneeInfoSumbit">立即提交</button>
-					      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-					    </div>
-					  </div>
-				 </form>
-			  </div>
-			</div>
-	</div>
-</div>
+	
 <script src="${PATH}/static/js/jquery2.0-min.js"></script>	
 <script src="${PATH}/static/layui/layui.all.js"></script>
 <script src="${PATH}/static/vue/vue.min.js"></script>
@@ -199,11 +139,11 @@ function renderTb() {
 		table.render({
 			elem : '#dataListTb',
 			height :400,
-			url : '${PATH}/order/getBeforeSendList',
+			url : '${PATH}/order/getCompleteList',
 			text : {
 				none : '未找到数据'
 			},
-			title:"待发货订单表格",
+			title:"完成的订单表格",
 			size : 'sm ',
 			contentType: "application/json",//必须指定，否则会报415错误
 		    dataType : 'json',
@@ -226,33 +166,51 @@ function renderTb() {
 			}, {
 				field : 'orderNum',
 				title : '订单号',
+				minWidth:128,
 				rowspan : 2,
 				align : "center"
 			},{
 				field : 'orderState',
 				title : '状态',
+				minWidth:128,
 				style:"color:orange",
 				rowspan : 2,
 				align : "center"
 			},{
-				title : '收货人',
+				title : '购买人',
 				colspan : 3,
+				minWidth:78,
 				align : "center"
-			}, {
-				field : 'payWay',
-				title : '支付方式',
+			},{
+				field : 'expressCom',
+				title : '物流公司',
 				rowspan : 2,
+				minWidth:78,
+				align : "center"
+			},{
+				field : 'expressNum',
+				title : '物流单号',
+				rowspan : 2,
+				minWidth:128,
 				align : "center"
 			},{
 				field : 'totalPrice',
 				title : '合计（元）',
 				rowspan : 2,
+				minWidth:120,
 				sort:true,
+				align : "center"
+			},{
+				field : 'returnReason',
+				title : '备注',
+				rowspan : 2,
+				minWidth:178,
 				align : "center"
 			},{
 				field : 'createTime',
 				title : '创建时间',
 				sort:true,
+				minWidth:171,
 				rowspan : 2,
 				align : "center"
 				,templet:"<div>{{layui.util.toDateString(d.createTime, 'yyyy-MM-dd HH:mm:ss')}}</div>"
@@ -266,14 +224,17 @@ function renderTb() {
 				} ], [ {
 					field : 'consignee',
 					title : '姓名',
+					minWidth:78,
 					align : "center"
 				}, {
 					field : 'address',
 					title : '地址',
+					minWidth:128,
 					align : "center"
 				}, {
 					field : 'phone',
 					title : '电话',
+					minWidth:128,
 					align : "center"
 				} ] ],
 				parseData : function(res) { //res 即为原始返回的数据
@@ -290,26 +251,7 @@ function renderTb() {
 			table.on('tool(dataTbFilter)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
 			  	var data = obj.data; //获得当前行数据
 			  	var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
-			  	if(layEvent === 'edit'){ //编辑
-			  		$("#editConsigneeOrderNum").val(data.orderNum)
-			  		$("#editConsigneeName").val(data.consignee)
-			  		$("#editConsigneeAddress").val(data.address)
-			  		$("#editConsigneePhone").val(data.phone)
-			  		layui.layer.open({
-						title : '修改收货人信息',
-						fix : true,
-						resize : false,
-						move : false,
-						area : [ '600px', '300px' ],
-						shadeClose : false,
-						type : 1,
-						anim: 5,
-						content : $('#editConsigneeModel'),
-						cancel : function(index, layero) {
-							$('#editConsigneeModel').css("display", "none")
-						}
-					 })
-			  	  } else if(layEvent === 'detail'){
+			  	if(layEvent === 'detail'){
 			  		$.ajax({
 						url:"${PATH}/order/getByOrderNum/"+data.orderNum,
 						method:"get",
@@ -388,36 +330,7 @@ function renderTb() {
 			});
 		});
 	})
-	//批量发货
-	$("#exceptionCustBtn").click(function() {
-		layui.use([ 'table', 'layer' ], function() {
-			var table = layui.table, layer = layui.layer;
-				var checkStatus = table.checkStatus('dataListTbId');
-				var datas = checkStatus.data
-				var ids = new Array();
-				$(datas).each(function() {
-					ids.push($(this)[0].orderId);
-				})
-				if (ids.length == 0) {
-					layer.msg("请选择数据！");
-					return false;
-				}
-				$("#deliveryOrderIds").val(ids)
-				var index = layer.open({
-					title : '填写物流信息',
-					fix : true,
-					resize : false,
-					move : false,
-					area : [ '800px', '300px' ],
-					shadeClose : false,
-					type : 1,
-					content : $('#deliveryModal'),
-					cancel : function(index, layero) {
-						$('#deliveryModal').css("display", "none")
-					}
-				});
-		});
-	})
+	
 	layui.use('laydate', function() {
 		var laydate = layui.laydate;
 		//执行一个laydate实例
@@ -438,82 +351,6 @@ function renderTb() {
 	$("#kwFormBtn").click(function() {
 		renderTb();
 	});
-	layui.use(['layer','form'], function(){
-		var layer = layui.layer,
-		form = layui.form;
-		form.on('submit(editClassify)', function(data){
-			  var datas = data.field
-			  $.ajax({
-				url:"${PATH}/classify/editClassify",
-				data:datas,
-				method:"post",
-				success:function(res){
-					if(res.code==100){
-						layer.msg(res.extend.msg,{icon:6},function(){
-							layer.closeAll()
-							renderTb();
-						})
-					}else{
-						layer.msg(res.extend.msg,{icon:5})	
-					}
-				},error:function(){
-					layer.msg("系统错误")
-				}
-			  });
-			  return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-			});
-	});
-	layui.use([ 'form', 'layer' ], function() {
-		var form = layui.form, layer = layui.layer;
-		form.on('submit(formDelivery)', function(data){
-		  console.log(data.field) 
-		  var datas = data.field
-		 $.ajax({
-			url:"${PATH}/order/writeExpressInfo",
-			method:"post",
-			data:datas,
-			success:function(res){
-				if(res.code==100){
-					layer.msg(res.extend.msg,{icon:6},function(){
-						layer.closeAll();
-						renderTb();
-					})
-				}else{
-					layer.msg(res.extend.msg,{icon:5})	
-				}
-			},error:function(){
-				layer.msg("系统错误")
-			}
-
-		 });
-		  return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-		});
-	})
-	layui.use([ 'form', 'layer' ], function() {
-		var form = layui.form, layer = layui.layer;
-		form.on('submit(editConsigneeInfoSumbit)', function(data){
-		  var datas = data.field
-		 $.ajax({
-			url:"${PATH}/order/modifyOrderInfoByCust",
-			method:"post",
-			data:datas,
-			success:function(res){
-				if(res.code==100){
-					layer.msg(res.extend.msg,{icon:6},function(){
-						layer.closeAll();
-						renderTb();
-					})
-				}else{
-					layer.msg(res.extend.msg,{icon:5})	
-				}
-			},error:function(){
-				layer.msg("系统错误")
-			}
-
-		 });
-		  return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-		});
-	})
 	
 </script>
 
@@ -523,7 +360,6 @@ function renderTb() {
 </script>
 <script type="text/html" id="barDemo">
   <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
-  <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="edit">编辑</a>
 </script>
 </body>
 </html>
